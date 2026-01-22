@@ -41,7 +41,62 @@
 - Almacenamiento seguro (Keychain)
 - Sincronización con backend
 
-## 🚀 Inicio Rápido
+## 🚀 Guía de Inicio Rápido - Xcode Setup
+
+Esta es la guía de configuración rápida para poner en marcha LetradOS en tu entorno local de Xcode.
+
+### 1. Abrir el proyecto
+
+Navega a la carpeta del proyecto y abre el archivo de Xcode:
+
+```bash
+cd legal-management-system/letrados-ios
+open Letrados.xcodeproj
+```
+
+### 2. Configurar Signing (Firmado)
+
+Para poder ejecutar la app en un simulador o dispositivo físico, Xcode necesita identificar al desarrollador:
+
+1. En el panel izquierdo (Project Navigator), haz clic en el icono azul de **Letrados**
+2. Selecciona el target **Letrados** en la lista central
+3. Ve a la pestaña **Signing & Capabilities**
+4. En **Team**, selecciona tu Apple ID o equipo de desarrollo
+5. En **Bundle Identifier**, cambia `com.upap.letrados` por uno único, por ejemplo: `com.tu-nombre.letrados`
+
+### 3. Selección de Destino y Ejecución
+
+Elige dónde quieres probar la aplicación:
+
+- **Simulador**: En la barra superior de Xcode, selecciona **iPhone 15 Pro**
+- **Dispositivo físico**: Conecta tu iPhone/iPad por cable, desblóquéalo y selecciónalo en la lista
+- **Compilar**: Pulsa `Cmd + R` o el botón ▶️ en la parte superior izquierda
+
+### 4. Configuración de Red (Importante)
+
+Por defecto, la app busca el backend en `http://localhost:5001`.
+
+**Simulador**: Funcionará directamente si el backend Flask está corriendo.
+
+**Dispositivo Físico**:
+1. Ve a la pestaña **Ajustes** dentro de la app LetradOS
+2. En **URL del Servidor**, introduce la IP local de tu Mac (ej: `http://192.168.1.XX:5001`)
+3. Asegúrate de que tanto el Mac como el iPhone estén en la misma red Wi-Fi
+
+### 🛠️ Atajos de Teclado en Xcode
+
+| Acción | Atajo / Ruta |
+|--------|-------------|
+| Limpiar Proyecto | `Cmd + Shift + K` |
+| Ejecutar App | `Cmd + R` |
+| Ver Logs | `Cmd + Shift + C` |
+| Cambiar Modo Oscuro | `Cmd + Shift + A` (en simulador) |
+
+> **Nota**: Si ejecutas en un dispositivo físico por primera vez, deberás ir a **Ajustes > General > Gestión de dispositivos** en tu iPhone para "Confiar" en tu certificado de desarrollador.
+
+---
+
+## 🚀 Otros Componentes
 
 ### Backend
 
@@ -59,14 +114,6 @@ python app.py
 cd frontend
 npm install
 npm start
-```
-
-### App iOS
-
-```bash
-cd letrados-ios
-open Letrados.xcodeproj
-# Cmd + R para ejecutar
 ```
 
 ## 📚 Documentación
